@@ -1,6 +1,6 @@
 # AudioEngine project
 
-*Simple audio engine to learn Agile method*
+*Simple audio engine to learn Agile methodology*
 
 ## Contexte
 Développer un moteur audio adapté aux jeux vidéos. Dans un premier temps, ce moteur peut-être conçu comme un simple lecteur de fichiers
@@ -16,5 +16,8 @@ L'idée de ce projet est d'utiliser la méthode Agile fondée sur la réalisatio
 
 ## SPRINT #1 - lecteur Audio
 
- - [ ]  Lire un fichier MP3
- - [ ]  Pause / Play / Resume / Stop
+ - [ ]  Charger et lire un fichier MP3
+ - [ ]  Pause
+ - [ ]  Play
+ - [ ]  Resume
+ - [ ]  Stop
