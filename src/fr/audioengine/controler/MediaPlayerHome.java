@@ -58,12 +58,12 @@ public class MediaPlayerHome implements Initializable {
 		// On construit la stage
 		stage = new Stage();
 		try {
-			// récupération du FXML (scenebuilder) src/fr/audioengine/samples/trap.wav
+
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/fr/audioengine/view/mediaPlayer.fxml"));
 
 			loader.setController(this);
 			stage.setScene(new Scene(loader.load()));
-			stage.setTitle("LocaCom");
+			stage.setTitle("AudioEngine");
 			// stage.setMaximized(true);
 			stage.setMinHeight(600);
 			stage.setMinWidth(800);
@@ -78,6 +78,8 @@ public class MediaPlayerHome implements Initializable {
 
 		items.add(new Audio("trap", "trap.wav"));
 		items.add(new Audio("Trap Melody", "melody.wav"));
+		items.add(new Audio("bass", "bass.wav"));
+		items.add(new Audio("bass", "loop.wav"));
 		mediaList.setCellFactory(new Callback<ListView<Audio>, ListCell<Audio>>() {
 
 			@Override

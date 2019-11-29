@@ -104,7 +104,9 @@ public class AudioPlayer {
 
 	// Method to reset audio stream
 	public void resetAudioStream() throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+		System.out.println("test");
 		audioInputStream = AudioSystem.getAudioInputStream(new File("src/fr/audioengine/samples/"+filePath).getAbsoluteFile());
+		System.out.println(audioInputStream.getFormat());
 		clip.open(audioInputStream);
 		clip.loop(Clip.LOOP_CONTINUOUSLY);
 		status = "play";
