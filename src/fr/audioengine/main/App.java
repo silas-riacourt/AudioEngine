@@ -24,10 +24,9 @@ public class App extends Application{
 	public void start(Stage primaryStage) throws Exception {
 
 		//mediaPlayer.getStage().show();
-		Player p = new Player("trap.wav");
+		Player p = new Player("trap.wav",true);
 		p.play();
-		TimeUnit.SECONDS.sleep(3);
-		p.play();
+
 		//Player p1 = new Player("Loop.wav");
 		//p1.play();
 	}
