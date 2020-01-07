@@ -11,13 +11,21 @@ sonores mono au format WAV, avec les contrôles de lecture classique (lecture, p
 L'idée de ce projet est d'utiliser la méthode Agile fondée sur la réalisation de sprint.
 ### Langages 
 * Java
-* JavaFx
-* *Api Audio ??*
+
 
 ## SPRINT #1 - lecteur Audio
 
- - [ ]  Charger et lire un fichier MP3
- - [ ]  Pause
- - [ ]  Play
- - [ ]  Resume
- - [ ]  Stop
+ - [x]  Charger et lire un fichier MP3
+ - [x]  Pause
+ - [x]  Play
+ - [x]  Resume
+ - [x]  Stop
+ 
+ ## SPRINT #2 - amélioration lecteur Audio
+
+ - [x]  Jouer un fichier en boucle
+ - [x]  Jouer un fichier avec une durée définie
+ - [x]  Jouer plusieurs fichiers à la fois
+ - []  Gérer le volume du son
+
+ ## SPRINT #3 - Effets audio
