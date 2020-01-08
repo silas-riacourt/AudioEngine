@@ -2,6 +2,7 @@ package fr.audioengine.model;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.concurrent.TimeUnit;
 
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
@@ -50,12 +51,28 @@ public class Player {
 
 	}
 
-	public void play() {
-
+	public void play(){
 		this.clip.start();
-
 	}
 
+	public void timedPlay(int duree) throws InterruptedException {
+		boolean stopped = false;
+		int timer = 0;
+		if(duree > this.clip.getFrameLength()) {
+			System.out.println("Erreur, timecode supérieur à la durée du son");
+		}else {
+			this.clip.start();
+			while(!stopped) {
+				if(duree == timer) {
+					clip.stop();
+					stopped = true;
+				}else {
+					TimeUnit.MILLISECONDS.sleep(1000);
+					timer++;
+				}
+			}
+		}
+	}
 	public boolean setVolume(float f) {
 		
 		boolean status = true;
