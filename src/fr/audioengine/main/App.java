@@ -25,21 +25,34 @@ public class App extends Application {
 
 		//mediaPlayer.getStage().show();
 
+		/* Chargements des sons */
+		/* On charge le son d'ambiance avec true pour la lecture en boucle */
 		Player p = new Player("ambiance_4.wav",true);
-		p.setVolume(0);
+
+		Player heal = new Player("heal.wav",false);
+		/* On le démarre */
 		p.play();
-		p.setVolume(0.7f);
+	
+		/* On change le volume du son */
+		p.setVolume(1.0f);
 
+		/* Après 2s */
 		Thread.sleep(2000);
-		Player p2 = new Player("coin.wav",5);
-		p2.play();
-		p2.setVolume(0.9F);
-
-		Thread.sleep(3000);
-		p2.restart();
 		
-		Player p3 = new Player("heal.wav",1);
-		p3.play();
+		
+		/* On joue le son coin 4 fois */
+		Player coin = new Player("coin.wav",4);
+		coin.play();
+		coin.setVolume(0.9F);
+
+		/* Après 3s */
+		Thread.sleep(3000);
+		
+		/* on replay le son coins */
+		coin.restart();
+		
+		/* On joue le son heal */
+		heal.restart();
 		
 	}
 
