@@ -26,6 +26,10 @@ L'idée de ce projet est d'utiliser la méthode Agile fondée sur la réalisatio
  - [x]  Jouer un fichier en boucle
  - [x]  Jouer un fichier avec une durée définie
  - [x]  Jouer plusieurs fichiers à la fois
- - []  Gérer le volume du son
+ - [x]  Gérer le volume du son
 
  ## SPRINT #3 - Effets audio
+
+ - [ ]  Audio panning (stereo)
+ - [ ]  création et association d'ambiances audio
+ - [ ]  Gérer le volume du son
