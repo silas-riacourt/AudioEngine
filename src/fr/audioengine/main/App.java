@@ -27,11 +27,14 @@ public class App extends Application {
 
 		/* Chargements des sons */
 		/* On charge le son d'ambiance avec true pour la lecture en boucle */
-		Player p = new Player("ambiance_4.wav",true);
-
-		Player heal = new Player("heal.wav",false);
+		Player p = new Player("ambiance_4.wav");
+		Player coin = new Player("coin.wav");
+		Player heal = new Player("heal.wav");
+		
+		
+		
 		/* On le démarre */
-		p.play();
+		p.play(true);
 	
 		/* On change le volume du son */
 		p.setVolume(1.0f);
@@ -41,8 +44,8 @@ public class App extends Application {
 		
 		
 		/* On joue le son coin 4 fois */
-		Player coin = new Player("coin.wav",4);
-		coin.play();
+
+		coin.play(4);
 		coin.setVolume(0.9F);
 
 		/* Après 3s */
@@ -52,7 +55,7 @@ public class App extends Application {
 		coin.restart();
 		
 		/* On joue le son heal */
-		heal.restart();
+		heal.play(false);
 		
 	}
 
