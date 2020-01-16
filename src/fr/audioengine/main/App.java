@@ -34,7 +34,8 @@ public class App extends Application {
 		
 		
 		/* On le démarre */
-		p.play(true);
+		p.timedPlay((float)8.0);
+		System.out.println(p.getTimeCode());
 	
 		/* On change le volume du son */
 		p.setVolume(1.0f);
@@ -42,7 +43,7 @@ public class App extends Application {
 		/* Après 2s */
 		Thread.sleep(2000);
 		
-		
+
 		/* On joue le son coin 4 fois */
 
 		coin.play(4);
@@ -53,7 +54,7 @@ public class App extends Application {
 		
 		/* on replay le son coins */
 		coin.restart();
-		
+
 		/* On joue le son heal */
 		heal.play(false);
 		

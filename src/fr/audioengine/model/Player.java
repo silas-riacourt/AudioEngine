@@ -8,6 +8,8 @@ import javax.sound.sampled.Clip;
 import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
+import java.lang.Float; 
+
 
 public class Player {
 
@@ -46,7 +48,7 @@ public class Player {
 	 * Méthode pour démarrer un son 
 	 * 
 	 * @param loop : boolean -> spécifie si le son doit être jouer en boucle
-	 * @return status : boolean -> indique si le son a été jouer
+	 * @return status : boolean -> indique si le son a été joué
 	 */
 	public boolean play(boolean loop) {
 
@@ -67,7 +69,54 @@ public class Player {
 		
 		return status;
 	}
+	
+	public Player(String path, Boolean loop, int duree)
+			throws UnsupportedAudioFileException, IOException, LineUnavailableException {
+		duree = duree * 1000;
+		this.path = path;
+		// this.audioInputStream = AudioSystem.getAudioInputStream(new
+		// File("src/fr/audioengine/samples/"+path));
+		this.audioInputStream = AudioSystem
+				.getAudioInputStream(new File("src/fr/audioengine/samples/" + path).getAbsoluteFile());
+		this.clip = AudioSystem.getClip();
+		this.clip.open(audioInputStream);
+		if (loop) {
+			clip.loop(Clip.LOOP_CONTINUOUSLY);
+			clip.stop();
+		}
+		
 
+	}
+	
+	public boolean timedPlay(float duree) throws InterruptedException {
+		this.clip.start();
+		boolean waiting = false;
+		System.out.println("test1");
+		
+		if(duree > this.clip.getMicrosecondLength()/1000000) {
+			System.out.println("Erreur, timecode supérieur à la durée du son");
+			return waiting;
+		}else if (waiting == false){
+			System.out.println("testé");
+			while(waiting == false) {
+				System.out.println("rentré dans boucle while");
+
+				if(Float.compare(getTimeCode(), duree) == 0) {
+					System.out.println("test avant stoppage");
+					this.clip.stop();
+					System.out.println("clip stoppé");
+
+					waiting = true;
+				}
+			}
+		}
+		return waiting;
+		
+	}
+
+	public float getTimeCode() {
+		return (float)(this.clip.getMicrosecondPosition()/1000000);
+	}
 	/**
 	 * 
 	 * Méthode pour démarrer un son 
@@ -184,4 +233,7 @@ public class Player {
 		return status;
 	}
 
+	public Clip getClip() {
+		return this.clip;
+	}
 }
