@@ -88,8 +88,16 @@ public class Player {
 
 	}
 	
+	/**
+	 * 
+	 * Méthode pour jouer un son avec durée définie
+	 * 
+	 * @param duree : float -> détermine la durée du son joué
+	 * @return waiting -> indique si le son a été joué
+	 * @throws InterruptedException
+	 */
 	public boolean timedPlay(float duree) throws InterruptedException {
-		this.clip.start();
+		this.play(false);
 		boolean waiting = false;
 		System.out.println("test1");
 		
@@ -99,13 +107,12 @@ public class Player {
 		}else if (waiting == false){
 			System.out.println("testé");
 			while(waiting == false) {
-				System.out.println("rentré dans boucle while");
-
+				System.out.println("rentré dans boucle while timecode : "+getTimeCode());
+					
 				if(Float.compare(getTimeCode(), duree) == 0) {
 					System.out.println("test avant stoppage");
 					this.clip.stop();
 					System.out.println("clip stoppé");
-
 					waiting = true;
 				}
 			}
