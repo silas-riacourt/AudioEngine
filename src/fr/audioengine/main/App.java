@@ -1,32 +1,26 @@
 package fr.audioengine.main;
 
-import java.io.File;
 import java.io.IOException;
 
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
-import javax.sound.sampled.Clip;
-import javax.sound.sampled.FloatControl;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 
 import fr.audioengine.model.Ambiance;
 import fr.audioengine.model.Audio;
-import javafx.application.Application;
 import javafx.stage.Stage;
 
-public class App extends Application  {
+public class App  {
 
 	/* son pour les exemples */
-	Audio coin = new Audio("coin.wav");
-	Audio heal = new Audio("heal.wav");
-	Audio gameover = new Audio("game_over.wav");
+	static Audio coin = new Audio("coin.wav");
+	static Audio heal = new Audio("heal.wav");
+	static Audio gameover = new Audio("game_over.wav");
 	
-	Audio suspens_1 = new Audio("suspens_1.wav");
-	Audio suspens_2 = new Audio("suspens_2.wav");
+	static Audio suspens_1 = new Audio("suspens_1.wav");
+	static Audio suspens_2 = new Audio("suspens_2.wav");
 
-	Audio happy_1 = new Audio("happy_1.wav");
-	Audio happy_2 = new Audio("happy_2.wav");
+	static Audio happy_1 = new Audio("happy_1.wav");
+	static Audio happy_2 = new Audio("happy_2.wav");
 	
 	
 	/**
@@ -34,7 +28,7 @@ public class App extends Application  {
 	 * Exemple 1 
 	 * Avec une ambiance happy
 	 */
-	public void exemple_1() throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
+	public static void exemple_1() throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
 		/* création de l'ambiance */
 		Ambiance happy = Ambiance.happy;
 		
@@ -60,7 +54,7 @@ public class App extends Application  {
 
 
 	}
-	public void exemple_2() throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
+	public static void exemple_2() throws UnsupportedAudioFileException, IOException, LineUnavailableException, InterruptedException {
 		
 		/* création de l'ambiance */
 		Ambiance suspens = Ambiance.suspens;
@@ -94,7 +88,7 @@ public class App extends Application  {
 	 * - Montre le fait de pouvoir jouer un son un certain temps
 	 * 
 	 */
-	public void exemple_3() throws InterruptedException {
+	public static void exemple_3() throws InterruptedException {
 		
 		suspens_2.timedPlay((float)3);
 		
@@ -106,7 +100,7 @@ public class App extends Application  {
 	 * @throws InterruptedException 
 	 * 
 	 */
-	public void exemple_4() throws InterruptedException {
+	public static void exemple_4() throws InterruptedException {
 		
 		happy_2.play();	
 		happy_2.effetStereo(250);
@@ -115,12 +109,12 @@ public class App extends Application  {
 
 		
 	}
-	public void start(Stage primaryStage) throws Exception {
+	public static void main(String[] args) throws Exception {
 
 		//exemple_1();
-		//exemple_2();
+		exemple_2();
 		//exemple_3();
-		exemple_4();
+		//exemple_4();
 		
 	}
 
